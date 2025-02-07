@@ -12,6 +12,11 @@ class CreateHousehold extends CreateRecord
 {
     protected static string $resource = HouseholdResource::class;
 
+    protected function getRedirectUrl(): string
+    {
+        return $this->getResource()::getUrl('index');
+    }
+    
     protected function mutateFormDataBeforeCreate(array $data): array
     {
         $data['created_by'] = Auth::id();

@@ -132,7 +132,7 @@ class HouseholdResource extends Resource
                                         ->required(),
                                     Select::make('civil_status')
                                         ->label('Civil Status')
-                                        ->options(['Single' => 'Single', 'Married' => 'Married', 'Widowed' => 'Widowed'])
+                                        ->options(['Single' => 'Single', 'Married' => 'Married', 'Cohabitation' => 'Cohabitation', 'Separated' => 'Separated', 'Widow/er' => 'Widow/er'])
                                         ->required(),
                                     TextInput::make('mothers_maiden_name')
                                         ->label("Mother's Maiden Name")
@@ -156,7 +156,7 @@ class HouseholdResource extends Resource
                                             'Protestant' => 'Protestant',
                                             'LDS-Mormons' => 'LDS-Mormons',
                                             'Evangelical' => 'Evangelical',
-                                            'N/A' => 'N/A',
+                                            'N/A (Not Required)' => 'N/A (Not Required)',
                                         ]),
                                     TextInput::make('contact_number_primary')
                                         ->label('Primary Contact Number')
@@ -196,12 +196,15 @@ class HouseholdResource extends Resource
                                         ->label('Street')
                                         ->options([
                                             '1' => '1',
+                                            '2' => '3',
                                             '2A' => '2A',
                                             '2B' => '2B',
+                                            '3' => '3',
                                             '3A' => '3A',
                                             '3B' => '3B',
                                             '4' => '4',
                                             '5' => '5',
+                                            '6' => '6',
                                             '6A' => '6A',
                                             '6B' => '6B',
                                             '7' => '7',
@@ -254,8 +257,14 @@ class HouseholdResource extends Resource
                                                 ->options([
                                                     'Brother' => 'Brother',
                                                     'Sister' => 'Sister',
+                                                    'Spouse' => 'Spouse',
                                                     'Mother' => 'Mother',
                                                     'Father' => 'Father',
+                                                    'Son' => 'Son',
+                                                    'Daughter' => 'Daughter',
+                                                    'Cohabitation' => 'Cohabitation',
+                                                    'Cousin' => 'Cousin',
+                                                    'Friend' => 'Friend',
                                                     'Grandmother' => 'Grandmother',
                                                     'Grandfather' => 'Grandfather',
                                                     'Auntie' => 'Auntie',
@@ -321,7 +330,7 @@ class HouseholdResource extends Resource
                                                     'Doctorate' => 'Doctorate',
                                                     'Post Graduate' => 'Post Graduate',
                                                     'Vocational Course' => 'Vocational Course',
-                                                    'N/A' => 'N/A',
+                                                    'N/A (Not Required)' => 'N/A (Not Required)',
                                                 ]),
                                             TextInput::make('occupation')->label('Occupation'),
                                             Textarea::make('remarks')->label('Remarks'),

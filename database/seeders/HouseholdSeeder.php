@@ -10,6 +10,6 @@ class HouseholdSeeder extends Seeder
 {
     public function run()
     {
-        Household::factory(2)->create();
+        // Household::factory(2)->create();
     }
 }
